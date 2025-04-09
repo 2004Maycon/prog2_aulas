@@ -6,20 +6,22 @@ def matriz(linha,coluna,minimo,maximo):
         for j in range(coluna):
             list_coluna.append(random.randint(minimo,maximo))
         criar_matriz.append(list_coluna)
+    print(criar_matriz[i][j],end="")
+    print()
     return criar_matriz
 def trocar_coluna (criar_matriz):
-    coluna1 = []
-    coluna2 = []
+    col_A= []
+    col_b = []
     aux = []
-    for i in range(len(criar_matriz)):
-        coluna1.append(criar_matriz[0])
-    for j in range(len(criar_matriz)):
-        coluna2.append(criar_matriz[3])
-    aux = coluna1
-    coluna1 = coluna2
-    criar_matriz.append(aux,coluna1)
-    return criar_matriz
-
+    linha = len(criar_matriz)
+    coluna = len(criar_matriz[0])
+    if coluna > 2 :
+        for i in range(linha):
+            aux.append(criar_matriz[i][0])
+            criar_matriz[i][0] = criar_matriz[i][3]
+            criar_matriz[i][3] = aux[i]
+        return criar_matriz
+        print()
 def print_matriz(criar_matriz):
     linha = len(criar_matriz)
     coluna = len(criar_matriz[0])
@@ -34,5 +36,7 @@ def main():
     min = int(input("qual parametro de numeros "))
     max = int(input("qual parametro de numeros "))
     retornar  = matriz(quantidade_de_linhas,quantidade_coluna,min,max)
-    trocar_coluna(retornar)    
+    coluna_trocada =trocar_coluna(retornar)
+    print_matriz(coluna_trocada)
+    print(f"coluna trocada{print_matriz}")
 main()
