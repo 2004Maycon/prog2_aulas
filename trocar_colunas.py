@@ -38,10 +38,12 @@ def main():
     max = int(input("qual parametro de numeros "))
     col1= int(input("qual a 1 coluna?"))
     col2= int(input("qual a 1 coluna?"))
+
     retornar  = matriz(quantidade_de_linhas,quantidade_coluna,min,max)
     print_matriz(retornar)
     print()
     coluna_trocada =trocar_coluna(retornar,col1,col2)
+
     print_coluna_trocada(coluna_trocada)
     print()
 main()
